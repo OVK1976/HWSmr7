@@ -9,41 +9,40 @@ m = 3, n = 4.
 
 8 7,8 -7,1 9 */
 
-// TODO Повторно: разобрать создание двумерного массива
-#region CreateNewArray // Создание массива чисел
-double[] CreateArray(int size)
-{
-    double[] array = new double[size];
-    Random random = new();
+Console.WriteLine("Задайте размер двумерного массива");
+Console.WriteLine("Введите количество строк m: ");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов n: ");
+int n = int.Parse(Console.ReadLine());
+Console.WriteLine("Получился массив:");
+PrintArray(GetArray(m, n));
 
-    for (int i = 0; i < array.Length; i++)
+double [,] GetArray(int m, int n)
+
+{
+    double[,] array = new double[m, n];
+    Random rnd = new Random();
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        array[i] = Math.Round(random.NextDouble() * random.Next(int.MinValue, int.MaxValue), 2);
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = Math.Round(rnd.NextDouble() * 10,2);
+        }
     }
     return array;
 }
-#endregion
 
-
-// TODO Доработать для двумерного массива
-
-#region WriteArrayToString // Вывод элементов массив
-string ArrayToString(int[] array)
+void PrintArray(double[,] array)
 {
-    string result = "[";
-
-    for (int i = 0; i < array.Length; i++)
-        if (i == array.Length - 1)
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            result += $"{array[i]}";
+            Console.Write($"{array[i, j]}  ");
         }
-        else
-        {
-            result += $"{array[i]}, ";
-        }
+        Console.WriteLine();
+    }
 
-    result += "]";
-    return result;
 }
 
-#endregion
+
