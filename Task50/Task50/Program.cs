@@ -12,8 +12,6 @@
 
 17->такого числа в массиве нет */
 
-using System;
-
 Console.WriteLine("Поиск значения в двумерном массиве");
 Console.WriteLine("Введите строку (от 1): ");
 int i= int.Parse(Console.ReadLine());
