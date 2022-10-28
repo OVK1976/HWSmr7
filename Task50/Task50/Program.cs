@@ -36,7 +36,7 @@ int[,] GetArray(int m, int n)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = rnd.Next(1, 20);
+            array[i, j] = rnd.Next(-20, 20);
         }
     }
     return array;
